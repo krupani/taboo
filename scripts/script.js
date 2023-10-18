@@ -15,7 +15,7 @@ const gameTypeRadios = document.getElementsByName('game-type');
 const gameSetupForm = document.getElementById('game-setup-form');
 const finalScore = document.getElementById('final-score');
 const restartGame = document.getElementById('restart-game');
-const skipSound = new Audio('sounds/skip.wav');
+const skipSound = new Audio('sounds/skip.mp3');
 const tabooSound = new Audio('sounds/buzzer.wav');
 const correctSound = new Audio('sounds/correct.wav');
 const gameOverSound = new Audio('sounds/gameover.wav');
@@ -37,7 +37,6 @@ let allWords = {
         { "main": "Kite", "taboo": ["Fly", "String", "Wind", "Sky", "Tails"] },
         { "main": "Rainbow", "taboo": ["Colors", "Sky", "Weather", "Nature"] },
         { "main": "Cake", "taboo": ["Sweet", "Birthday", "Candle", "Dessert", "Cream"] },
-        { "main": "Rocket", "taboo": ["Space", "Launch", "Astronaut", "Fuel"] },
         { "main": "Train", "taboo": ["Tracks", "Station", "Passengers", "Wheels"] },
         { "main": "Pirate", "taboo": ["Treasure", "Ship", "Sword", "Island", "Captain"] },
         { "main": "Magic", "taboo": ["Wand", "Illusion", "Hocus-Pocus", "Mystery", "Spell"] },
@@ -62,9 +61,18 @@ let allWords = {
         { "main": "Spaghetti", "taboo": ["tomato", "pasta", "noodles", "long"] },
         { "main": "School", "taboo": ["student", "teacher", "education", "books"] },
         { "main": "Milk", "taboo": ["Yogurt", "dairy", "cow", "cheese", "white"] },
-        { "main": "Pizza", "taboo": ["Cheese", "Yummy", "Round", "Toppings"]},
+        { "main": "Pizza", "taboo": ["Cheese", "Yummy", "Round", "Toppings"] },
+        { "main": "Earth", "taboo": ["life", "planet", "water", "moon"] },
+        { "main": "Teacher", "taboo": ["School", "Study", "Books", "Classroom"] },
+        { "main": "Selfie", "taboo": ["photo", "click", "camera", "phone"] },
+        { "main": "Water", "taboo": ["thirsty", "drink", "sea", "river"] },
+        { "main": "hospital", "taboo": ["nurses", "doctors", "sick", "medicine"] },
+        { "main": "rain", "taboo": ["water", "cloud", "lightning", "sky"] },
+        { "main": "oxygen", "taboo": ["plants", "air", "lungs", "breath"] },
+
     ],
     general: [
+        { "main": "Rocket", "taboo": ["Space", "Launch", "Astronaut", "Fuel"] },
         { "main": "flute", "taboo": ["band", "long", "music", "sound", "instrument"] },
         { "main": "Robot", "taboo": ["Machine", "AI", "Automate", "Science", "Future"] },
         { "main": "Canada", "taboo": ["maple", "ontario", "toronto", "french", "ottawa"] },
@@ -159,6 +167,20 @@ let allWords = {
         { "main": "Netflix", "taboo": ["TV", "video", "movies", "service", "streaming"] },
         { "main": "Mahatma Gandhi", "taboo": ["Independence", "Non-Violence", "congress", "India", "Freedom"] },
         { "main": "Instagram", "taboo": ["facebook", "Social Media", "Photos", "Reels", "Upload"] },
+        { "main": "Wi-Fi", "taboo": ["router", "internet", "network", "access", "wireless"] },
+        { "main": "Arnold Schwarzenegger", "taboo": ["hollywood", "bodybuilding", "governor", "california", "Terminator"] },
+        { "main": "ChristianBale", "taboo": ["Hollywood", "movies", "actor", "batman"] },
+        { "main": "Crime", "taboo": ["justice", "illegal", "offence", "law"] },
+        { "main": "London", "taboo": ["westminster", "thames", "royal", "city", "england"] },
+        { "main": "Facebook", "taboo": ["like", "profile", "website", "social media", "zuckerberg"] },
+        { "main": "Pollution", "taboo": ["human", "air", "environment", "water", "health"] },
+        { "main": "Periodictable", "taboo": ["Chemistry", "properties", "group", "atomic", "elements"] },
+        { "main": "Nut", "taboo": ["hazel", "Cashew", "pine", "edible", "allergy"] },
+        { "main": "Mount Everest", "taboo": ["himalayas", "expedition", "nepal", "peak", "mountain", "trekking"] },
+        { "main": "ladybugs", "taboo": ["wings", "insect", "black", "red", "spot"] },
+        { "main": "sword", "taboo": ["cut", "blade", "gun", "weapon", "knife"] },
+        { "main": "tattoo", "taboo": ["designs", "black", "parlor", "skin", "ink"] },
+        { "main": "thunderstorm", "taboo": ["rain", "thunder", "gray", "weather", "lightning"] },
     ]
 };
 
@@ -173,7 +195,7 @@ function startGame(gameType) {
     if (gameType == "general") {
         selectedWords = allWords["kids"].concat(selectedWords)
     }
-    
+
     let currentIndex = selectedWords.length, randomIndex;
     while (currentIndex > 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
