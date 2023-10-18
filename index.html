@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Taboo Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="start" style="display: block;">
+            <h2>Welcome to the Taboo Game</h2>
+            <button id="kids" class="yellow-button">Kids</button>
+            <button id="general" class="yellow-button">General</button>
+        </div>
+        <div id="game" style="display: none;">
+            <h1 id="main-word">Main Word</h1><br>
+            <div class="taboo-words" id="taboo-words">
+                <p><b>Taboo Words:</b></p>
+                <ul id="taboo-list">
+                    <li>Taboo Word 1</li>
+                    <li>Taboo Word 2</li>
+                    <li>Taboo Word 3</li>
+                    <li>Taboo Word 4</li>
+                    <li>Taboo Word 5</li>
+                </ul>
+            </div>
+            <br>
+            <div class="timer" id="timer">Time Left: <span id="time">180</span> seconds</div>
+            <br>
+            <div class="score" id="score">Correct: 0 | Taboo: 0</div>
+            <br>
+            <div class="buttons">
+                <button id="guessed" class="green-button">Correct</button>
+                <button id="skip" class="yellow-button">Skip</button>
+                <button id="taboo" class="red-button">Taboo</button>
+            </div>
+        </div>
+        <div id="end" style="display: none;">
+            <h2>Thank you for playing!</h2>
+            <h3>Your Score is: </h3>
+            <div id="final-score"></div><br>
+            <button id="restart-game" class="yellow-button">Play Again!</button>
+        </div>
+    </div>
+    <br>
+    <div id="author">
+        <div>Made with &hearts; by <a href="https://linkedin.com/in/kushrupani" target="_blank">Kaushal Rupani</a></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
